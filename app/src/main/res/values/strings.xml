@@ -12,8 +12,10 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="auto_theme">Auto</string>
     <string name="start_up_screen">Startup screen</string>
+    <string name="ads">Ads</string>
+    <string name="remove_ads">Remove Ads</string>
     <string name="about">About</string>
-    <string name="project_on_github">Open Source Attributions</string>
+    <string name="project_on_github">Source Code and Attributions</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="notes">Notes</string>
     <string name="tasks">Tasks</string>
@@ -121,4 +123,6 @@
     <string name="visit_dentist_tasks_preview">Visit dentist</string>
     <string name="buy_groceries_tasks_preview">Buy groceries</string>
     <string name="call_mom_tasks_preview">Call mom</string>
+
+    <string name="thank_you_purchase">Thank you for purchasing! All ads removed.</string>
 </resources>

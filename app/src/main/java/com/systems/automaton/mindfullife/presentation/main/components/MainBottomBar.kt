@@ -3,11 +3,13 @@ package com.systems.automaton.mindfullife.presentation.main.components
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.systems.automaton.mindfullife.ads.showAd
 import com.systems.automaton.mindfullife.presentation.util.BottomNavItem
 
 @Composable
@@ -18,6 +20,7 @@ fun MainBottomBar(
     BottomNavigation (backgroundColor = MaterialTheme.colors.background) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
+        val currentContext = LocalContext.current
         items.forEach {
             BottomNavigationItem(
                 icon = { Icon(
@@ -33,6 +36,9 @@ fun MainBottomBar(
                 },
                 selected = currentDestination?.route == it.route,
                 onClick = {
+
+                    currentContext.showAd()
+
                     navController.navigate(it.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true

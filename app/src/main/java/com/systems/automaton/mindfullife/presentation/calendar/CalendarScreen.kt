@@ -32,6 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.ads.showAd
 import com.systems.automaton.mindfullife.domain.model.Calendar
 import com.systems.automaton.mindfullife.util.date.*
 import kotlinx.coroutines.launch
@@ -171,6 +172,7 @@ fun CalendarScreen(
         }
     }
 
+    LocalContext.current.showAd()
 }
 
 @Composable

@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" /> <!-- For reminders -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- to start the alarms after restart. (By default, all alarms are canceled when a device shuts down) -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name="com.systems.automaton.mindfullife.app.MyBrainApplication"
@@ -129,6 +131,12 @@
             android:enabled="@bool/glance_appwidget_available"
             android:exported="false">
         </receiver>
+
+        <!-- AdMob -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ad_app_id" />
+
     </application>
 
 </manifest>

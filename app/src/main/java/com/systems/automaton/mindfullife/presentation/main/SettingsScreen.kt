@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.ads.AdManager
+import com.systems.automaton.mindfullife.ads.BillingManager
 import com.systems.automaton.mindfullife.presentation.settings.SettingsBasicLinkItem
 import com.systems.automaton.mindfullife.presentation.settings.SettingsItemCard
 import com.systems.automaton.mindfullife.presentation.settings.SettingsViewModel
@@ -89,6 +91,27 @@ fun SettingsScreen(
                         )
                     }
                 )
+            }
+
+            if (!AdManager.instance.isDisabled) {
+                item {
+                    Text(
+                        text = stringResource(R.string.ads),
+                        style = MaterialTheme.typography.h5,
+                        modifier = Modifier
+                            .padding(vertical = 16.dp, horizontal = 12.dp)
+                    )
+                }
+
+                item {
+                    SettingsBasicLinkItem(
+                        title = R.string.remove_ads,
+                        icon = R.drawable.ic_read_mode,
+                        onClick = {
+                            BillingManager.instance.buy()
+                        }
+                    )
+                }
             }
 
             item {

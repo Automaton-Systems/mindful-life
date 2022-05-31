@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -20,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
 import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.ads.showAd
 import com.systems.automaton.mindfullife.presentation.util.Screen
 import com.systems.automaton.mindfullife.util.Constants
 import com.systems.automaton.mindfullife.util.settings.Order
@@ -130,6 +132,8 @@ fun DiaryScreen(
             }
         }
     }
+
+    LocalContext.current.showAd()
 }
 
 @Composable
