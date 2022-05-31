@@ -18,7 +18,7 @@
 [screenshots made by previewed](https://previewed.app/template/00CBF3F6)
 
 ## Features
-- Private with no data collection and no internet permission at all.
+- Private with no data collection.
 - Create tasks with priority, sub-tasks, description and due date and reminders.
 - Create Notes that supports markdown which enables you to use Headers, lists, links etc..
 - Record your mood daily and view your mood summary with beautiful graphs.
