@@ -23,7 +23,7 @@
      height="80">](https://github.com/mhss1/MyBrain/releases/latest)
      [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" 
       alt='Get it on IzzyOnDroid' 
-      height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.mhss.app.mybrain)
+      height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.systems.automaton.mindfullife)
       Soon on F-Droid
 
 ## Features

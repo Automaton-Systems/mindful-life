@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Brain</string>
+    <string name="app_name">Mindful Life</string>
 
     <string name="reminders_channel_description">Notification channel for sending tasks reminders notification</string>
     <string name="reminders_channel_name">Reminders</string>
@@ -24,7 +24,7 @@
     <string name="bookmarks">Bookmarks</string>
     <string name="calendar">Calendar</string>
     <string name="add_task">Add task</string>
-    <string name="add_task_to_my_brain">Add task to My Brain</string>
+    <string name="add_task_to_my_brain">Add task</string>
     <string name="search">Search</string>
     <string name="title">Title</string>
     <string name="delete_sub_task">Delete Sub task</string>
@@ -58,10 +58,10 @@
     <string name="cancel">Cancel</string>
     <string name="support_with">Support with :</string>
     <string name="thank_you_for_support">Thank you for your support ❤</string>
-    <string name="no_tasks_message">You don\'t have any tasks\n Click the + button the add a new Task\n or \nby using the shortcut in the quick settings menu</string>
-    <string name="no_notes_message">You don\'t have any notes\n Click the + button the add a new Note</string>
-    <string name="no_entries_message">You don\'t have any entries\n Click the + button the add a new entry</string>
-    <string name="no_bookmarks_message">You don\'t have any bookmarks\n Click the + button the add a new bookmark\n or \nby using the share option from any browser</string>
+    <string name="no_tasks_message">You don\'t have any tasks</string>
+    <string name="no_notes_message">You don\'t have any notes</string>
+    <string name="no_entries_message">You don\'t have any entries</string>
+    <string name="no_bookmarks_message">You don\'t have any bookmarks</string>
     <string name="project_roadmap">Project roadmap</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>
@@ -128,5 +128,4 @@
     <string name="visit_dentist_tasks_preview">Visit dentist</string>
     <string name="buy_groceries_tasks_preview">Buy groceries</string>
     <string name="call_mom_tasks_preview">Call mom</string>
-
 </resources>
