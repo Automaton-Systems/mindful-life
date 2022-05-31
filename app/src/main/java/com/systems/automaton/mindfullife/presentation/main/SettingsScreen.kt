@@ -2,8 +2,6 @@ package com.systems.automaton.mindfullife.presentation.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -17,9 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.systems.automaton.mindfullife.BuildConfig
 import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.presentation.settings.DonationItem
 import com.systems.automaton.mindfullife.presentation.settings.SettingsBasicLinkItem
 import com.systems.automaton.mindfullife.presentation.settings.SettingsItemCard
 import com.systems.automaton.mindfullife.presentation.settings.SettingsViewModel
@@ -31,7 +27,6 @@ import com.systems.automaton.mindfullife.util.settings.ThemeSettings
 fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
-    val openDonationDialog = remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -107,14 +102,6 @@ fun SettingsScreen(
 
             item {
                 SettingsBasicLinkItem(
-                    title = R.string.app_version,
-                    icon = R.drawable.ic_code,
-                    subtitle = BuildConfig.VERSION_NAME,
-                    link = Constants.GITHUB_RELEASES_LINK
-                )
-            }
-            item {
-                SettingsBasicLinkItem(
                     title = R.string.project_on_github,
                     icon = R.drawable.ic_github,
                     link = Constants.PROJECT_GITHUB_LINK
@@ -129,65 +116,8 @@ fun SettingsScreen(
                 )
             }
 
-            item {
-                Text(
-                    text = stringResource(R.string.product),
-                    style = MaterialTheme.typography.h5,
-                    modifier = Modifier
-                        .padding(vertical = 16.dp, horizontal = 12.dp)
-                )
-            }
-
-            item {
-                SettingsBasicLinkItem(
-                    title = R.string.request_feature_report_bug,
-                    icon = R.drawable.ic_feature_issue,
-                    link = Constants.GITHUB_ISSUES_LINK
-                )
-            }
-
-            item {
-                SettingsBasicLinkItem(
-                    title = R.string.project_roadmap,
-                    icon = R.drawable.ic_roadmap,
-                    link = Constants.PROJECT_ROADMAP_LINK
-                )
-            }
-
-            item {
-                SettingsBasicLinkItem(
-                    title = R.string.support_the_developer,
-                    icon = R.drawable.ic_heart,
-                    onClick = { openDonationDialog.value = true }
-                )
-            }
             item { Spacer(Modifier.height(60.dp)) }
         }
-        if (openDonationDialog.value)
-            AlertDialog(
-                title = { Text(text = stringResource(R.string.thank_you_for_support)) },
-                text = { Text(text = stringResource(R.string.support_with)) },
-                shape = RoundedCornerShape(25.dp),
-                onDismissRequest = { openDonationDialog.value = false },
-                buttons = {
-                    LazyRow(
-                        Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp, horizontal = 12.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        item {
-                            DonationItem("PayPal", Constants.PAYPAL_LINK, R.drawable.ic_paypal)
-                        }
-                        item {
-                            DonationItem("BuyMeACoffee", Constants.BUY_ME_A_COFFEE_LINK)
-                        }
-                        item {
-                            DonationItem("Ko-fi", Constants.KO_FI_LINK)
-                        }
-                    }
-                }
-            )
     }
 }
 

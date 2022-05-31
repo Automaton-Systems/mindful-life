@@ -13,11 +13,8 @@
     <string name="auto_theme">Auto</string>
     <string name="start_up_screen">Startup screen</string>
     <string name="about">About</string>
-    <string name="app_version">App version</string>
-    <string name="project_on_github">Project on GitHub</string>
+    <string name="project_on_github">Open Source Attributions</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="product">Product</string>
-    <string name="support_the_developer">Support the developer</string>
     <string name="notes">Notes</string>
     <string name="tasks">Tasks</string>
     <string name="diary">Diary</string>
@@ -30,7 +27,6 @@
     <string name="delete_sub_task">Delete Sub task</string>
     <string name="add_sub_task">Add sub task</string>
     <string name="description">Description</string>
-    <string name="request_feature_report_bug">Request a feature / Report a bug</string>
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="high">High</string>
@@ -56,13 +52,10 @@
     <string name="delete_bookmark_confirmation_message">Are you sure you want to delete this bookmark""</string>
     <string name="delete_diary_entry_confirmation_message">Are you sure you want to delete this entry""</string>
     <string name="cancel">Cancel</string>
-    <string name="support_with">Support with :</string>
-    <string name="thank_you_for_support">Thank you for your support ❤</string>
     <string name="no_tasks_message">You don\'t have any tasks</string>
     <string name="no_notes_message">You don\'t have any notes</string>
     <string name="no_entries_message">You don\'t have any entries</string>
     <string name="no_bookmarks_message">You don\'t have any bookmarks</string>
-    <string name="project_roadmap">Project roadmap</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>
     <string name="note_content">Note content (supports markdown)</string>

@@ -31,14 +31,8 @@ object Constants {
     const val DIARY_ID_ARG = "diary_id"
 
     // lINKS
-    const val PROJECT_GITHUB_LINK = "https://github.com/mhss1/ByBrain"
-    const val PROJECT_ROADMAP_LINK = "https://github.com/mhss1/ByBrain/projects/1"
-    const val PRIVACY_POLICY_LINK = "https://github.com/mhss1/ByBrain/blob/master/privacy-policy.md"
-    const val KO_FI_LINK = "https://ko-fi.com/mhss1"
-    const val BUY_ME_A_COFFEE_LINK = "https://www.buymeacoffee.com/mhss"
-    const val PAYPAL_LINK = "https://www.paypal.me/mhss1"
-    const val GITHUB_ISSUES_LINK = "https://github.com/mhss1/ByBrain/issues"
-    const val GITHUB_RELEASES_LINK = "https://github.com/mhss1/ByBrain/releases"
+    const val PROJECT_GITHUB_LINK = "https://github.com/automaton82/mindful-life"
+    const val PRIVACY_POLICY_LINK = "https://github.com/automaton82/mindful-life/blob/master/privacy-policy.md"
 
 
 }
