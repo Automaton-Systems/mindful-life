@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -12,8 +13,8 @@ android {
         applicationId "com.systems.automaton.mindfullife"
         minSdk 24
         targetSdk 32
-        versionCode 3
-        versionName "3.0"
+        versionCode 4
+        versionName "4.0"
 
         vectorDrawables {
             useSupportLibrary true
@@ -68,7 +69,7 @@ dependencies {
     def room_version = "2.4.2"
     def coroutines_version = "1.6.1"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
