@@ -1,5 +1,6 @@
 package com.systems.automaton.mindfullife.ads
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
@@ -14,7 +15,6 @@ private const val TAG: String = "AdManager"
 class AdManager {
 
     private var mInterstitialAd: InterstitialAd? = null
-    private lateinit var applicationContext: Context
     var isDisabled: Boolean = false; private set
     private var isInitialized: Boolean = false
 
@@ -23,15 +23,13 @@ class AdManager {
             throw IllegalStateException("Can't initialize an already initialized singleton.")
         }
 
-        applicationContext = context
-
         MobileAds.initialize(context) {}
         val requestConfiguration = RequestConfiguration.Builder()
             .setTestDeviceIds(listOf(AdRequest.DEVICE_ID_EMULATOR, context.getString(R.string.physical_device_id)))
             .build()
         MobileAds.setRequestConfiguration(requestConfiguration)
 
-        prepareAd()
+        prepareAd(context)
     }
 
     fun showAd(activity: Activity) {
@@ -47,14 +45,14 @@ class AdManager {
         }
     }
 
-    private fun prepareAd() {
+    private fun prepareAd(context: Context) {
 
         if (isDisabled) {
             return
         }
 
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(applicationContext, applicationContext.getString(R.string.ad_unit_id), adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(context, context.getString(R.string.ad_unit_id), adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 Log.d(TAG, adError.message)
                 mInterstitialAd = null
@@ -72,7 +70,7 @@ class AdManager {
                 interstitialAd.fullScreenContentCallback = object: FullScreenContentCallback() {
                     override fun onAdDismissedFullScreenContent() {
                         Log.d(TAG, "Ad was dismissed.")
-                        prepareAd()
+                        prepareAd(context)
                     }
 
                     override fun onAdShowedFullScreenContent() {
@@ -94,15 +92,27 @@ class AdManager {
     }
 }
 
-fun Context.getActivity(): Activity? = when (this) {
-    is Activity -> this
-    is ContextWrapper -> baseContext.getActivity()
-    else -> null
+@SuppressLint("StaticFieldLeak")
+private var lastKnownActivity: Activity? = null
+fun Context.getActivity(): Activity? {
+    if (this is Activity) {
+        lastKnownActivity = this
+    } else if (this is ContextWrapper) {
+        lastKnownActivity = baseContext.getActivity()
+    }
+    return lastKnownActivity
 }
 
 fun Context.showAd() = run {
     val activity = this.getActivity()
-    if (activity != null) {
-        AdManager.instance.showAd(activity)
+    activity?.let {
+        AdManager.instance.showAd(it)
+    }
+}
+
+fun Context.launchBuy() = run {
+    val activity = this.getActivity()
+    activity?.let {
+        BillingManager.instance.buy(it)
     }
 }

@@ -12,6 +12,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.ads.AdManager
 import com.systems.automaton.mindfullife.ads.BillingManager
+import com.systems.automaton.mindfullife.ads.EventManager
 import com.systems.automaton.mindfullife.util.Constants
 import dagger.hilt.android.HiltAndroidApp
 
@@ -28,6 +29,7 @@ class MyBrainApplication : Application() {
         super.onCreate()
         AdManager.instance.initialize(this)
         BillingManager.instance.initialize(this)
+        EventManager.instance.initialize(this)
         appContext = this
         createRemindersNotificationChannel()
     }

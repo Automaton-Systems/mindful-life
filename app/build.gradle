@@ -12,8 +12,8 @@ android {
         applicationId "com.systems.automaton.mindfullife"
         minSdk 24
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         vectorDrawables {
             useSupportLibrary true
@@ -112,5 +112,8 @@ dependencies {
 
     // Compose Glance (Widgets)
     implementation "androidx.glance:glance-appwidget:1.0.0-alpha03"
+
+    implementation platform('com.google.firebase:firebase-bom:29.3.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 }
