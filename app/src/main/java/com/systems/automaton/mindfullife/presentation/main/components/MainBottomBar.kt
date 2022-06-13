@@ -20,7 +20,6 @@ fun MainBottomBar(
     BottomNavigation (backgroundColor = MaterialTheme.colors.background) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
-        val currentContext = LocalContext.current
         items.forEach {
             BottomNavigationItem(
                 icon = { Icon(
@@ -36,9 +35,6 @@ fun MainBottomBar(
                 },
                 selected = currentDestination?.route == it.route,
                 onClick = {
-
-                    currentContext.showAd()
-
                     navController.navigate(it.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true

@@ -132,8 +132,6 @@ fun DiaryScreen(
             }
         }
     }
-
-    LocalContext.current.showAd()
 }
 
 @Composable

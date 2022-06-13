@@ -175,8 +175,6 @@ fun BookmarksScreen(
             }
         }
     }
-
-    LocalContext.current.showAd()
 }
 
 @Composable

@@ -187,8 +187,6 @@ fun TasksScreen(
             }
         }
     }
-
-    LocalContext.current.showAd()
 }
 
 @Composable

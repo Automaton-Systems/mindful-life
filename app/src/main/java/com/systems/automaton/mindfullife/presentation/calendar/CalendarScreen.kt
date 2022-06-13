@@ -171,8 +171,6 @@ fun CalendarScreen(
             }
         }
     }
-
-    LocalContext.current.showAd()
 }
 
 @Composable

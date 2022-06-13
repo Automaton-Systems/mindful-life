@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.navigation.NavDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.systems.automaton.mindfullife.ads.showAd
 import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarkDetailsScreen
 import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarkSearchScreen
 import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarksScreen
@@ -48,6 +50,7 @@ import kotlinx.coroutines.runBlocking
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+    private var lastKnownRoute: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +82,14 @@ class MainActivity : ComponentActivity() {
             }
             MyBrainTheme(darkTheme = isDarkMode) {
                 val navController = rememberNavController()
+
+                navController.addOnDestinationChangedListener { _, destination: NavDestination, _, ->
+                    if (lastKnownRoute != destination.route) {
+                        lastKnownRoute = destination.route
+                        this.showAd()
+                    }
+                }
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background

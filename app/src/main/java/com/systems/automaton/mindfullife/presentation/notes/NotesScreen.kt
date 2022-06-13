@@ -156,8 +156,6 @@ fun NotesScreen(
             }
         }
     }
-
-    LocalContext.current.showAd()
 }
 
 @Composable
