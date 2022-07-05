@@ -1,4 +1,4 @@
-package com.systems.automaton.mindfullife.presentation.main
+package com.mhss.app.mybrain.presentation.main
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,17 +8,18 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.systems.automaton.mindfullife.domain.model.CalendarEvent
-import com.systems.automaton.mindfullife.domain.model.DiaryEntry
-import com.systems.automaton.mindfullife.domain.model.Task
-import com.systems.automaton.mindfullife.domain.use_case.calendar.GetAllEventsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.diary.GetAllEntriesUseCase
-import com.systems.automaton.mindfullife.domain.use_case.settings.GetSettingsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.tasks.GetAllTasksUseCase
-import com.systems.automaton.mindfullife.domain.use_case.tasks.UpdateTaskUseCase
-import com.systems.automaton.mindfullife.util.Constants
-import com.systems.automaton.mindfullife.util.date.inTheLastWeek
-import com.systems.automaton.mindfullife.util.settings.*
+import com.mhss.app.mybrain.domain.model.CalendarEvent
+import com.mhss.app.mybrain.domain.model.DiaryEntry
+import com.mhss.app.mybrain.domain.model.Task
+import com.mhss.app.mybrain.domain.use_case.calendar.GetAllEventsUseCase
+import com.mhss.app.mybrain.domain.use_case.diary.GetAllEntriesUseCase
+import com.mhss.app.mybrain.domain.use_case.settings.GetSettingsUseCase
+import com.mhss.app.mybrain.domain.use_case.tasks.GetAllTasksUseCase
+import com.mhss.app.mybrain.domain.use_case.tasks.UpdateTaskUseCase
+import com.mhss.app.mybrain.ui.theme.Rubik
+import com.mhss.app.mybrain.util.Constants
+import com.mhss.app.mybrain.util.date.inTheLastWeek
+import com.mhss.app.mybrain.util.settings.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
@@ -39,8 +40,9 @@ class MainViewModel @Inject constructor(
 
     private var refreshTasksJob : Job? = null
 
-    val themMode = getSettings(intPreferencesKey(Constants.SETTINGS_THEME_KEY), ThemeSettings.AUTO.value)
+    val themeMode = getSettings(intPreferencesKey(Constants.SETTINGS_THEME_KEY), ThemeSettings.AUTO.value)
     val defaultStartUpScreen = getSettings(intPreferencesKey(Constants.DEFAULT_START_UP_SCREEN_KEY), StartUpScreenSettings.SPACES.value)
+    val font = getSettings(intPreferencesKey(Constants.APP_FONT_KEY), Rubik.toInt())
 
     fun onDashboardEvent(event: DashboardEvent) {
         when(event) {

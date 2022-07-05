@@ -1,39 +1,38 @@
-package com.systems.automaton.mindfullife.presentation.main
+package com.mhss.app.mybrain.presentation.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
-import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.ads.AdManager
-import com.systems.automaton.mindfullife.ads.BillingManager
-import com.systems.automaton.mindfullife.ads.launchBuy
-import com.systems.automaton.mindfullife.presentation.settings.SettingsBasicLinkItem
-import com.systems.automaton.mindfullife.presentation.settings.SettingsItemCard
-import com.systems.automaton.mindfullife.presentation.settings.SettingsViewModel
-import com.systems.automaton.mindfullife.util.Constants
-import com.systems.automaton.mindfullife.util.settings.StartUpScreenSettings
-import com.systems.automaton.mindfullife.util.settings.ThemeSettings
+import com.mhss.app.mybrain.BuildConfig
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.presentation.settings.DonationItem
+import com.mhss.app.mybrain.presentation.settings.SettingsBasicLinkItem
+import com.mhss.app.mybrain.presentation.settings.SettingsItemCard
+import com.mhss.app.mybrain.presentation.settings.SettingsViewModel
+import com.mhss.app.mybrain.ui.theme.Rubik
+import com.mhss.app.mybrain.util.Constants
+import com.mhss.app.mybrain.util.settings.*
 
 @Composable
 fun SettingsScreen(
-    navController: NavHostController,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
-    val context = LocalContext.current
+    val openDonationDialog = remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -97,25 +96,20 @@ fun SettingsScreen(
                     }
                 )
             }
-
-            if (!AdManager.instance.isDisabled) {
-                item {
-                    Text(
-                        text = stringResource(R.string.ads),
-                        style = MaterialTheme.typography.h5,
-                        modifier = Modifier
-                            .padding(vertical = 16.dp, horizontal = 12.dp)
+            item {
+                val screen = viewModel
+                    .getSettings(
+                        intPreferencesKey(Constants.APP_FONT_KEY),
+                        Rubik.toInt()
+                    ).collectAsState(
+                        initial = Rubik.toInt()
                     )
-                }
-
-                item {
-                    SettingsBasicLinkItem(
-                        title = R.string.remove_ads,
-                        icon = R.drawable.ic_read_mode,
-                        onClick = {
-                            BillingManager.instance.navController = navController
-                            context.launchBuy()
-                        }
+                AppFontSettingsItem(
+                    screen.value,
+                ) { font ->
+                    viewModel.saveSettings(
+                        intPreferencesKey(Constants.APP_FONT_KEY),
+                        font
                     )
                 }
             }
@@ -129,6 +123,14 @@ fun SettingsScreen(
                 )
             }
 
+            item {
+                SettingsBasicLinkItem(
+                    title = R.string.app_version,
+                    icon = R.drawable.ic_code,
+                    subtitle = BuildConfig.VERSION_NAME,
+                    link = Constants.GITHUB_RELEASES_LINK
+                )
+            }
             item {
                 SettingsBasicLinkItem(
                     title = R.string.project_on_github,
@@ -145,8 +147,65 @@ fun SettingsScreen(
                 )
             }
 
+            item {
+                Text(
+                    text = stringResource(R.string.product),
+                    style = MaterialTheme.typography.h5,
+                    modifier = Modifier
+                        .padding(vertical = 16.dp, horizontal = 12.dp)
+                )
+            }
+
+            item {
+                SettingsBasicLinkItem(
+                    title = R.string.request_feature_report_bug,
+                    icon = R.drawable.ic_feature_issue,
+                    link = Constants.GITHUB_ISSUES_LINK
+                )
+            }
+
+            item {
+                SettingsBasicLinkItem(
+                    title = R.string.project_roadmap,
+                    icon = R.drawable.ic_roadmap,
+                    link = Constants.PROJECT_ROADMAP_LINK
+                )
+            }
+
+            item {
+                SettingsBasicLinkItem(
+                    title = R.string.support_the_developer,
+                    icon = R.drawable.ic_heart,
+                    onClick = { openDonationDialog.value = true }
+                )
+            }
             item { Spacer(Modifier.height(60.dp)) }
         }
+        if (openDonationDialog.value)
+            AlertDialog(
+                title = { Text(text = stringResource(R.string.thank_you_for_support)) },
+                text = { Text(text = stringResource(R.string.support_with)) },
+                shape = RoundedCornerShape(25.dp),
+                onDismissRequest = { openDonationDialog.value = false },
+                buttons = {
+                    LazyRow(
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp, horizontal = 12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item {
+                            DonationItem("PayPal", Constants.PAYPAL_LINK, R.drawable.ic_paypal)
+                        }
+                        item {
+                            DonationItem("BuyMeACoffee", Constants.BUY_ME_A_COFFEE_LINK)
+                        }
+                        item {
+                            DonationItem("Ko-fi", Constants.KO_FI_LINK)
+                        }
+                    }
+                }
+            )
     }
 }
 
@@ -239,6 +298,63 @@ fun StartUpScreenSettingsItem(
                         text = stringResource(id = R.string.dashboard),
                         style = MaterialTheme.typography.body1
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AppFontSettingsItem(
+    selectedFont: Int,
+    onFontChange: (Int) -> Unit = {}
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val fonts = listOf(
+        FontFamily.Default,
+        Rubik,
+        FontFamily.Monospace,
+        FontFamily.SansSerif
+    )
+    SettingsItemCard(
+        cornerRadius = 16.dp,
+        onClick = {
+            expanded = true
+        },
+    ) {
+        Text(
+            text = stringResource(R.string.app_font),
+            style = MaterialTheme.typography.h6
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(),
+            contentAlignment = Alignment.CenterEnd
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    selectedFont.toFontFamily().getName(),
+                    style = MaterialTheme.typography.body1
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = null)
+            }
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false },
+            ) {
+                fonts.forEach {
+                    DropdownMenuItem(onClick = {
+                        onFontChange(it.toInt())
+                        expanded = false
+                    }) {
+                        Text(
+                            text = it.getName(),
+                            style = MaterialTheme.typography.body1
+                        )
+                    }
                 }
             }
         }

@@ -1,22 +1,25 @@
-package com.systems.automaton.mindfullife.presentation.main
+package com.mhss.app.mybrain.presentation.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.presentation.calendar.CalendarDashboardWidget
-import com.systems.automaton.mindfullife.presentation.diary.MoodCircularBar
-import com.systems.automaton.mindfullife.presentation.tasks.TasksDashboardWidget
-import com.systems.automaton.mindfullife.presentation.util.Screen
-import com.systems.automaton.mindfullife.util.Constants
+import com.google.gson.Gson
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.domain.model.CalendarEvent
+import com.mhss.app.mybrain.presentation.calendar.CalendarDashboardWidget
+import com.mhss.app.mybrain.presentation.diary.MoodCircularBar
+import com.mhss.app.mybrain.presentation.tasks.TasksDashboardWidget
+import com.mhss.app.mybrain.presentation.util.Screen
+import com.mhss.app.mybrain.util.Constants
 
 @Composable
 fun DashboardScreen(
@@ -52,6 +55,22 @@ fun DashboardScreen(
                     },
                     onPermission = {
                         viewModel.onDashboardEvent(DashboardEvent.ReadPermissionChanged(it))
+                    },
+                    onAddEventClicked = {
+                        navController.navigate(
+                            Screen.CalendarEventDetailsScreen.route.replace(
+                                "{${Constants.CALENDAR_EVENT_ARG}}",
+                                " "
+                            )
+                        )
+                    },
+                    onEventClicked = {
+                        navController.navigate(
+                            Screen.CalendarEventDetailsScreen.route.replace(
+                                "{${Constants.CALENDAR_EVENT_ARG}}",
+                                Gson().toJson(it, CalendarEvent::class.java)
+                            )
+                        )
                     }
                 )
             }

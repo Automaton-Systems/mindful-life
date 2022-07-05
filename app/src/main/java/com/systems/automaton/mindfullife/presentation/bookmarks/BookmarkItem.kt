@@ -1,8 +1,7 @@
-package com.systems.automaton.mindfullife.presentation.bookmarks
+package com.mhss.app.mybrain.presentation.bookmarks
 
 import android.content.Intent
 import android.net.Uri
-import android.webkit.URLUtil
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,8 +18,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.domain.model.Bookmark
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.domain.model.Bookmark
+import com.mhss.app.mybrain.util.bookmarks.isValidUrl
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -62,9 +62,9 @@ fun LazyItemScope.BookmarkItem(
             )
             IconButton(
                 onClick = {
-                    if (URLUtil.isValidUrl(bookmark.url)){
+                    if (bookmark.url.isValidUrl()){
                         val intent = Intent(Intent.ACTION_VIEW)
-                        intent.data = Uri.parse(bookmark.url)
+                        intent.data = Uri.parse(if (!bookmark.url.startsWith("http://") && !bookmark.url.startsWith("https://")) "http://${bookmark.url}" else bookmark.url)
                         context.startActivity(intent)
                     } else
                         onInvalidUrl()

@@ -1,4 +1,4 @@
-package com.systems.automaton.mindfullife.presentation.calendar
+package com.mhss.app.mybrain.presentation.calendar
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,17 +6,18 @@ import androidx.compose.runtime.setValue
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.systems.automaton.mindfullife.domain.model.Calendar
-import com.systems.automaton.mindfullife.domain.model.CalendarEvent
-import com.systems.automaton.mindfullife.domain.use_case.calendar.GetAllCalendarsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.calendar.GetAllEventsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.settings.GetSettingsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.settings.SaveSettingsUseCase
-import com.systems.automaton.mindfullife.util.Constants
-import com.systems.automaton.mindfullife.util.date.monthName
-import com.systems.automaton.mindfullife.util.settings.addAndToStringSet
-import com.systems.automaton.mindfullife.util.settings.removeAndToStringSet
-import com.systems.automaton.mindfullife.util.settings.toIntList
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.app.getString
+import com.mhss.app.mybrain.domain.model.Calendar
+import com.mhss.app.mybrain.domain.model.CalendarEvent
+import com.mhss.app.mybrain.domain.use_case.calendar.*
+import com.mhss.app.mybrain.domain.use_case.settings.GetSettingsUseCase
+import com.mhss.app.mybrain.domain.use_case.settings.SaveSettingsUseCase
+import com.mhss.app.mybrain.util.Constants
+import com.mhss.app.mybrain.util.date.monthName
+import com.mhss.app.mybrain.util.settings.addAndToStringSet
+import com.mhss.app.mybrain.util.settings.removeAndToStringSet
+import com.mhss.app.mybrain.util.settings.toIntList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
@@ -28,6 +29,9 @@ import javax.inject.Inject
 class CalendarViewModel @Inject constructor(
     private val getAllEventsUseCase: GetAllEventsUseCase,
     private val getAllCalendarsUseCase: GetAllCalendarsUseCase,
+    private val addEvent: AddCalendarEventUseCase,
+    private val editEvent: UpdateCalendarEventUseCase,
+    private val deleteEvent: DeleteCalendarEventUseCase,
     private val saveSettings: SaveSettingsUseCase,
     private val getSettings: GetSettingsUseCase
 ) : ViewModel() {
@@ -43,6 +47,39 @@ class CalendarViewModel @Inject constructor(
             is CalendarViewModelEvent.ReadPermissionChanged -> {
                 if (event.hasPermission) collectSettings()
                 else updateEventsJob?.cancel()
+            }
+            is CalendarViewModelEvent.AddEvent -> viewModelScope.launch {
+                uiState = if (event.event.title.isNotBlank()) {
+                    if (event.event.start > System.currentTimeMillis()) {
+                        addEvent(event.event)
+                        uiState.copy(navigateUp = true)
+                    } else {
+                        uiState.copy(error = getString(R.string.error_future_event))
+                    }
+                } else {
+                    uiState.copy(error = getString(R.string.error_empty_title))
+                }
+            }
+            is CalendarViewModelEvent.DeleteEvent -> viewModelScope.launch {
+                if (event.event.title.isNotBlank()) {
+                    deleteEvent(event.event)
+                    uiState = uiState.copy(navigateUp = true)
+                }
+            }
+            is CalendarViewModelEvent.EditEvent -> viewModelScope.launch {
+                uiState = if (event.event.title.isNotBlank()) {
+                    if (event.event.start > System.currentTimeMillis()) {
+                        editEvent(event.event)
+                        uiState.copy(navigateUp = true)
+                    } else {
+                        uiState.copy(error = getString(R.string.error_future_event))
+                    }
+                } else {
+                    uiState.copy(error = getString(R.string.error_empty_title))
+                }
+            }
+            CalendarViewModelEvent.ErrorDisplayed -> {
+                uiState = uiState.copy(error = null)
             }
         }
     }
@@ -64,6 +101,7 @@ class CalendarViewModel @Inject constructor(
             ).onEach { calendarsSet ->
                 val events = getAllEventsUseCase(calendarsSet.toIntList())
                 val calendars = getAllCalendarsUseCase(calendarsSet.toIntList())
+                val allCalendars = getAllCalendarsUseCase(emptyList())
                 val months = events.map {
                     it.value.first().start.monthName()
                 }.distinct()
@@ -71,7 +109,8 @@ class CalendarViewModel @Inject constructor(
                     excludedCalendars = calendarsSet.map { it.toInt() }.toMutableList(),
                     events = events,
                     calendars = calendars,
-                    months = months
+                    months = months,
+                    calendarsList = allCalendars.values.flatten()
                 )
             }.launchIn(viewModelScope)
     }
@@ -79,7 +118,10 @@ class CalendarViewModel @Inject constructor(
     data class UiState(
         val events: Map<String, List<CalendarEvent>> = emptyMap(),
         val calendars: Map<String, List<Calendar>> = emptyMap(),
+        val calendarsList: List<Calendar> = emptyList(),
         val excludedCalendars: MutableList<Int> = mutableListOf(),
-        val months: List<String> = emptyList()
+        val months: List<String> = emptyList(),
+        val navigateUp: Boolean = false,
+        val error: String? = null
     )
 }

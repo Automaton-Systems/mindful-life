@@ -1,20 +1,20 @@
-package com.systems.automaton.mindfullife.presentation.bookmarks
+package com.mhss.app.mybrain.presentation.bookmarks
 
-import android.webkit.URLUtil
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.app.getString
-import com.systems.automaton.mindfullife.domain.model.Bookmark
-import com.systems.automaton.mindfullife.domain.use_case.bookmarks.*
-import com.systems.automaton.mindfullife.domain.use_case.settings.GetSettingsUseCase
-import com.systems.automaton.mindfullife.domain.use_case.settings.SaveSettingsUseCase
-import com.systems.automaton.mindfullife.util.Constants
-import com.systems.automaton.mindfullife.util.settings.*
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.app.getString
+import com.mhss.app.mybrain.domain.model.Bookmark
+import com.mhss.app.mybrain.domain.use_case.bookmarks.*
+import com.mhss.app.mybrain.domain.use_case.settings.GetSettingsUseCase
+import com.mhss.app.mybrain.domain.use_case.settings.SaveSettingsUseCase
+import com.mhss.app.mybrain.util.Constants
+import com.mhss.app.mybrain.util.bookmarks.isValidUrl
+import com.mhss.app.mybrain.util.settings.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
@@ -73,7 +73,7 @@ class BookmarksViewModel @Inject constructor(
                 )
                     uiState.copy(navigateUp = true)
                 else {
-                    if (URLUtil.isValidUrl(event.bookmark.url)) {
+                    if (event.bookmark.url.isValidUrl()) {
                         addBookmark(event.bookmark)
                         uiState.copy(navigateUp = true)
                     } else
@@ -93,7 +93,7 @@ class BookmarksViewModel @Inject constructor(
                 uiState = uiState.copy(searchBookmarks = bookmarks)
             }
             is BookmarkEvent.UpdateBookmark -> viewModelScope.launch {
-                uiState = if (!URLUtil.isValidUrl(event.bookmark.url)) {
+                uiState = if (!event.bookmark.url.isValidUrl()) {
                     uiState.copy(error = getString(R.string.invalid_url))
                 } else {
                     updateBookmark(event.bookmark.copy(updatedDate = System.currentTimeMillis()))

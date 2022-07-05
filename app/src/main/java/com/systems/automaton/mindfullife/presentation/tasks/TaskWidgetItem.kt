@@ -1,4 +1,4 @@
-package com.systems.automaton.mindfullife.presentation.tasks
+package com.mhss.app.mybrain.presentation.tasks
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -19,13 +19,13 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextDecoration
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
-import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.domain.model.Task
-import com.systems.automaton.mindfullife.presentation.glance_widgets.*
-import com.systems.automaton.mindfullife.util.date.formatDate
-import com.systems.automaton.mindfullife.util.date.isDueDateOverdue
-import com.systems.automaton.mindfullife.util.settings.Priority
-import com.systems.automaton.mindfullife.util.settings.toPriority
+import com.mhss.app.mybrain.R
+import com.mhss.app.mybrain.domain.model.Task
+import com.mhss.app.mybrain.presentation.glance_widgets.*
+import com.mhss.app.mybrain.util.date.formatDateDependingOnDay
+import com.mhss.app.mybrain.util.date.isDueDateOverdue
+import com.mhss.app.mybrain.util.settings.Priority
+import com.mhss.app.mybrain.util.settings.toPriority
 
 @Composable
 fun TaskWidgetItem(
@@ -82,7 +82,7 @@ fun TaskWidgetItem(
                     )
                     Spacer(GlanceModifier.width(3.dp))
                     Text(
-                        text = task.dueDate.formatDate(),
+                        text = task.dueDate.formatDateDependingOnDay(),
                         style = TextStyle(
                             color = if (task.dueDate.isDueDateOverdue()) ColorProvider(Color.Red) else ColorProvider(
                                 Color.White
@@ -115,7 +115,8 @@ fun TaskWidgetCheckBox(
                 }))
             .clickable(
                 onClick = onComplete
-            ).padding(3.dp)
+            ).padding(3.dp),
+        contentAlignment = Alignment.Center
     ) {
         if (isComplete) {
             Image(

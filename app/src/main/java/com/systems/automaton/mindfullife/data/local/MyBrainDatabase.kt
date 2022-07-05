@@ -8,8 +8,8 @@ import com.systems.automaton.mindfullife.data.local.dao.*
 import com.systems.automaton.mindfullife.domain.model.*
 
 @Database(
-    entities = [Note::class, Task::class, DiaryEntry::class, Bookmark::class, Alarm::class],
-    version = 1
+    entities = [Note::class, Task::class, DiaryEntry::class, Bookmark::class, Alarm::class, NoteFolder::class],
+    version = 2
 )
 @TypeConverters(DBConverters::class)
 abstract class MyBrainDatabase: RoomDatabase() {
