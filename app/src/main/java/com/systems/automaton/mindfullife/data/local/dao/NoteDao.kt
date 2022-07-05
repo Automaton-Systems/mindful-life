@@ -1,8 +1,8 @@
 package com.systems.automaton.mindfullife.data.local.dao
 
 import androidx.room.*
-import com.mhss.app.mybrain.domain.model.Note
-import com.mhss.app.mybrain.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.domain.model.Note
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
 import kotlinx.coroutines.flow.Flow
 
 @Dao

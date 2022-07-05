@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.notes
+package com.systems.automaton.mindfullife.presentation.notes
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -25,11 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.NoteFolder
-import com.mhss.app.mybrain.presentation.util.Screen
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.settings.*
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.presentation.util.Screen
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.settings.*
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

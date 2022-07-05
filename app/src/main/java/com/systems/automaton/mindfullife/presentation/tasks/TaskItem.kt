@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.tasks
+package com.systems.automaton.mindfullife.presentation.tasks
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -23,11 +23,11 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.Task
-import com.mhss.app.mybrain.util.date.formatDateDependingOnDay
-import com.mhss.app.mybrain.util.date.isDueDateOverdue
-import com.mhss.app.mybrain.util.settings.toPriority
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.Task
+import com.systems.automaton.mindfullife.util.date.formatDateDependingOnDay
+import com.systems.automaton.mindfullife.util.date.isDueDateOverdue
+import com.systems.automaton.mindfullife.util.settings.toPriority
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

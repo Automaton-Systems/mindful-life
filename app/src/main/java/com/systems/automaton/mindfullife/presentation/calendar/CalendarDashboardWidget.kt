@@ -21,7 +21,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.domain.model.CalendarEvent
-import com.systems.automaton.mindfullife.theme.LightGray
+import com.systems.automaton.mindfullife.ui.theme.LightGray
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable

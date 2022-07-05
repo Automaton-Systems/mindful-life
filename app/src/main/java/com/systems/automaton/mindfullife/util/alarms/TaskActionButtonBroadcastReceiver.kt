@@ -1,12 +1,12 @@
-package com.mhss.app.mybrain.util.alarms
+package com.systems.automaton.mindfullife.util.alarms
 
 import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.mhss.app.mybrain.domain.use_case.tasks.UpdateTaskCompletedUseCase
-import com.mhss.app.mybrain.domain.use_case.tasks.refreshTasksWidget
-import com.mhss.app.mybrain.util.Constants
+import com.systems.automaton.mindfullife.domain.use_case.tasks.UpdateTaskCompletedUseCase
+import com.systems.automaton.mindfullife.domain.use_case.tasks.refreshTasksWidget
+import com.systems.automaton.mindfullife.util.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject

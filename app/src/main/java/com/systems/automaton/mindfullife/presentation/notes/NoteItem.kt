@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.domain.model.Note
-import com.systems.automaton.mindfullife.theme.Orange
+import com.systems.automaton.mindfullife.ui.theme.Orange
 import dev.jeziellago.compose.markdowntext.MarkdownText
 
 @OptIn(ExperimentalFoundationApi::class)

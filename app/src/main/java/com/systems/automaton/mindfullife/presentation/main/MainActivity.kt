@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.main
+package com.systems.automaton.mindfullife.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,6 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,30 +19,31 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.mhss.app.mybrain.domain.use_case.notes.NoteFolderDetailsScreen
-import com.mhss.app.mybrain.presentation.bookmarks.BookmarkDetailsScreen
-import com.mhss.app.mybrain.presentation.bookmarks.BookmarkSearchScreen
-import com.mhss.app.mybrain.presentation.bookmarks.BookmarksScreen
-import com.mhss.app.mybrain.presentation.calendar.CalendarEventDetailsScreen
-import com.mhss.app.mybrain.presentation.calendar.CalendarScreen
-import com.mhss.app.mybrain.presentation.diary.DiaryChartScreen
-import com.mhss.app.mybrain.presentation.diary.DiaryEntryDetailsScreen
-import com.mhss.app.mybrain.presentation.diary.DiaryScreen
-import com.mhss.app.mybrain.presentation.diary.DiarySearchScreen
-import com.mhss.app.mybrain.presentation.notes.NoteDetailsScreen
-import com.mhss.app.mybrain.presentation.notes.NotesScreen
-import com.mhss.app.mybrain.presentation.notes.NotesSearchScreen
-import com.mhss.app.mybrain.presentation.tasks.TaskDetailScreen
-import com.mhss.app.mybrain.presentation.tasks.TasksScreen
-import com.mhss.app.mybrain.presentation.tasks.TasksSearchScreen
-import com.mhss.app.mybrain.presentation.util.Screen
-import com.mhss.app.mybrain.ui.theme.MyBrainTheme
-import com.mhss.app.mybrain.ui.theme.Rubik
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.settings.StartUpScreenSettings
-import com.mhss.app.mybrain.util.settings.ThemeSettings
-import com.mhss.app.mybrain.util.settings.toFontFamily
-import com.mhss.app.mybrain.util.settings.toInt
+import com.systems.automaton.mindfullife.ads.showAd
+import com.systems.automaton.mindfullife.domain.use_case.notes.NoteFolderDetailsScreen
+import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarkDetailsScreen
+import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarkSearchScreen
+import com.systems.automaton.mindfullife.presentation.bookmarks.BookmarksScreen
+import com.systems.automaton.mindfullife.presentation.calendar.CalendarEventDetailsScreen
+import com.systems.automaton.mindfullife.presentation.calendar.CalendarScreen
+import com.systems.automaton.mindfullife.presentation.diary.DiaryChartScreen
+import com.systems.automaton.mindfullife.presentation.diary.DiaryEntryDetailsScreen
+import com.systems.automaton.mindfullife.presentation.diary.DiaryScreen
+import com.systems.automaton.mindfullife.presentation.diary.DiarySearchScreen
+import com.systems.automaton.mindfullife.presentation.notes.NoteDetailsScreen
+import com.systems.automaton.mindfullife.presentation.notes.NotesScreen
+import com.systems.automaton.mindfullife.presentation.notes.NotesSearchScreen
+import com.systems.automaton.mindfullife.presentation.tasks.TaskDetailScreen
+import com.systems.automaton.mindfullife.presentation.tasks.TasksScreen
+import com.systems.automaton.mindfullife.presentation.tasks.TasksSearchScreen
+import com.systems.automaton.mindfullife.presentation.util.Screen
+import com.systems.automaton.mindfullife.ui.theme.MyBrainTheme
+import com.systems.automaton.mindfullife.ui.theme.Rubik
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.settings.StartUpScreenSettings
+import com.systems.automaton.mindfullife.util.settings.ThemeSettings
+import com.systems.automaton.mindfullife.util.settings.toFontFamily
+import com.systems.automaton.mindfullife.util.settings.toInt
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -51,6 +53,7 @@ import kotlinx.coroutines.runBlocking
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+    private var lastKnownRoute: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +84,14 @@ class MainActivity : ComponentActivity() {
             }
             MyBrainTheme(darkTheme = isDarkMode, fontFamily = font.value.toFontFamily()) {
                 val navController = rememberNavController()
+
+                navController.addOnDestinationChangedListener { _, destination: NavDestination, _, ->
+                    if (lastKnownRoute != destination.route) {
+                        lastKnownRoute = destination.route
+                        this.showAd()
+                    }
+                }
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background

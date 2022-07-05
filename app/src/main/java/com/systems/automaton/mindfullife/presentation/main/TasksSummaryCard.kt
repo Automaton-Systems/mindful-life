@@ -22,7 +22,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.domain.model.Task
-import com.systems.automaton.mindfullife.theme.Blue
+import com.systems.automaton.mindfullife.ui.theme.Blue
 
 @Composable
 fun TasksSummaryCard(

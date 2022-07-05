@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.data.repository
+package com.systems.automaton.mindfullife.data.repository
 
 import android.content.ContentUris
 import android.content.ContentValues
@@ -6,10 +6,10 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.CalendarContract
-import com.mhss.app.mybrain.domain.model.Calendar
-import com.mhss.app.mybrain.domain.model.CalendarEvent
-import com.mhss.app.mybrain.domain.repository.CalendarRepository
-import com.mhss.app.mybrain.util.calendar.*
+import com.systems.automaton.mindfullife.domain.model.Calendar
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.domain.repository.CalendarRepository
+import com.systems.automaton.mindfullife.util.calendar.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*

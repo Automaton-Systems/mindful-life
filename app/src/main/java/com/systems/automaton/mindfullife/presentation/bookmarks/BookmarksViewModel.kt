@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.bookmarks
+package com.systems.automaton.mindfullife.presentation.bookmarks
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,15 +6,15 @@ import androidx.compose.runtime.setValue
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.app.getString
-import com.mhss.app.mybrain.domain.model.Bookmark
-import com.mhss.app.mybrain.domain.use_case.bookmarks.*
-import com.mhss.app.mybrain.domain.use_case.settings.GetSettingsUseCase
-import com.mhss.app.mybrain.domain.use_case.settings.SaveSettingsUseCase
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.bookmarks.isValidUrl
-import com.mhss.app.mybrain.util.settings.*
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.app.getString
+import com.systems.automaton.mindfullife.domain.model.Bookmark
+import com.systems.automaton.mindfullife.domain.use_case.bookmarks.*
+import com.systems.automaton.mindfullife.domain.use_case.settings.GetSettingsUseCase
+import com.systems.automaton.mindfullife.domain.use_case.settings.SaveSettingsUseCase
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.bookmarks.isValidUrl
+import com.systems.automaton.mindfullife.util.settings.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect

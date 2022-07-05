@@ -19,7 +19,7 @@ import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.presentation.main.components.SpaceRegularCard
 import com.systems.automaton.mindfullife.presentation.main.components.SpaceWideCard
 import com.systems.automaton.mindfullife.presentation.util.Screen
-import com.systems.automaton.mindfullife.theme.*
+import com.systems.automaton.mindfullife.ui.theme.*
 
 @Composable
 fun SpacesScreen(

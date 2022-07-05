@@ -15,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.theme.Blue
+import com.systems.automaton.mindfullife.ui.theme.Blue
 
 @Composable
 fun SpaceRegularCard(

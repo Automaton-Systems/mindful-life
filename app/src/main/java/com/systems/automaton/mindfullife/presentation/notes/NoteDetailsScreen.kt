@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.notes
+package com.systems.automaton.mindfullife.presentation.notes
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -19,11 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.Note
-import com.mhss.app.mybrain.domain.model.NoteFolder
-import com.mhss.app.mybrain.presentation.util.Screen
-import com.mhss.app.mybrain.ui.theme.Orange
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.Note
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.presentation.util.Screen
+import com.systems.automaton.mindfullife.ui.theme.Orange
 import dev.jeziellago.compose.markdowntext.MarkdownText
 
 @Composable

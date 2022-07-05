@@ -1,7 +1,7 @@
-package com.mhss.app.mybrain.domain.repository
+package com.systems.automaton.mindfullife.domain.repository
 
-import com.mhss.app.mybrain.domain.model.Note
-import com.mhss.app.mybrain.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.domain.model.Note
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
 import kotlinx.coroutines.flow.Flow
 
 interface NoteRepository {

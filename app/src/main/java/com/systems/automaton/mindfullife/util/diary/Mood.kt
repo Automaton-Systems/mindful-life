@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import com.systems.automaton.mindfullife.R
-import com.systems.automaton.mindfullife.theme.*
+import com.systems.automaton.mindfullife.ui.theme.*
 
 enum class Mood(@DrawableRes val icon: Int, val color: Color, @StringRes val title: Int, val value: Int) {
     AWESOME(R.drawable.ic_very_happy, Green, R.string.awesome, 5),

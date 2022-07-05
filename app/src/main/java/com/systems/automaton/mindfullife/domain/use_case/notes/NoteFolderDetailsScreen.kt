@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.domain.use_case.notes
+package com.systems.automaton.mindfullife.domain.use_case.notes
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -23,13 +23,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.presentation.notes.NoteEvent
-import com.mhss.app.mybrain.presentation.notes.NoteItem
-import com.mhss.app.mybrain.presentation.notes.NotesViewModel
-import com.mhss.app.mybrain.presentation.util.Screen
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.settings.ItemView
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.presentation.notes.NoteEvent
+import com.systems.automaton.mindfullife.presentation.notes.NoteItem
+import com.systems.automaton.mindfullife.presentation.notes.NotesViewModel
+import com.systems.automaton.mindfullife.presentation.util.Screen
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.settings.ItemView
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

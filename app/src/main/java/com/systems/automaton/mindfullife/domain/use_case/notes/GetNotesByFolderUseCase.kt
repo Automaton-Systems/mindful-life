@@ -1,8 +1,8 @@
-package com.mhss.app.mybrain.domain.use_case.notes
+package com.systems.automaton.mindfullife.domain.use_case.notes
 
-import com.mhss.app.mybrain.domain.repository.NoteRepository
-import com.mhss.app.mybrain.util.settings.Order
-import com.mhss.app.mybrain.util.settings.OrderType
+import com.systems.automaton.mindfullife.domain.repository.NoteRepository
+import com.systems.automaton.mindfullife.util.settings.Order
+import com.systems.automaton.mindfullife.util.settings.OrderType
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

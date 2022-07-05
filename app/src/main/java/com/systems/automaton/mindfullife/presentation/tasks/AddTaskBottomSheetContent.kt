@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.tasks
+package com.systems.automaton.mindfullife.presentation.tasks
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -21,13 +21,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.SubTask
-import com.mhss.app.mybrain.domain.model.Task
-import com.mhss.app.mybrain.util.date.formatDateDependingOnDay
-import com.mhss.app.mybrain.util.settings.Priority
-import com.mhss.app.mybrain.util.settings.toInt
-import com.mhss.app.mybrain.util.settings.toPriority
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.SubTask
+import com.systems.automaton.mindfullife.domain.model.Task
+import com.systems.automaton.mindfullife.util.date.formatDateDependingOnDay
+import com.systems.automaton.mindfullife.util.settings.Priority
+import com.systems.automaton.mindfullife.util.settings.toInt
+import com.systems.automaton.mindfullife.util.settings.toPriority
 import java.util.*
 
 @Composable

@@ -1,4 +1,4 @@
-package com.systems.automaton.mindfullife.theme
+package com.systems.automaton.mindfullife.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

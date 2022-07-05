@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.util.bookmarks
+package com.systems.automaton.mindfullife.util.bookmarks
 
 import android.util.Patterns
 

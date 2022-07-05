@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.calendar
+package com.systems.automaton.mindfullife.presentation.calendar
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,18 +6,18 @@ import androidx.compose.runtime.setValue
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.app.getString
-import com.mhss.app.mybrain.domain.model.Calendar
-import com.mhss.app.mybrain.domain.model.CalendarEvent
-import com.mhss.app.mybrain.domain.use_case.calendar.*
-import com.mhss.app.mybrain.domain.use_case.settings.GetSettingsUseCase
-import com.mhss.app.mybrain.domain.use_case.settings.SaveSettingsUseCase
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.date.monthName
-import com.mhss.app.mybrain.util.settings.addAndToStringSet
-import com.mhss.app.mybrain.util.settings.removeAndToStringSet
-import com.mhss.app.mybrain.util.settings.toIntList
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.app.getString
+import com.systems.automaton.mindfullife.domain.model.Calendar
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.domain.use_case.calendar.*
+import com.systems.automaton.mindfullife.domain.use_case.settings.GetSettingsUseCase
+import com.systems.automaton.mindfullife.domain.use_case.settings.SaveSettingsUseCase
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.date.monthName
+import com.systems.automaton.mindfullife.util.settings.addAndToStringSet
+import com.systems.automaton.mindfullife.util.settings.removeAndToStringSet
+import com.systems.automaton.mindfullife.util.settings.toIntList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn

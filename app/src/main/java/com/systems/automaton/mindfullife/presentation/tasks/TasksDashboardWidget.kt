@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.systems.automaton.mindfullife.R
 import com.systems.automaton.mindfullife.domain.model.Task
-import com.systems.automaton.mindfullife.theme.LightGray
+import com.systems.automaton.mindfullife.ui.theme.LightGray
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

@@ -13,8 +13,8 @@ android {
         applicationId "com.systems.automaton.mindfullife"
         minSdk 24
         targetSdk 32
-        versionCode 5
-        versionName "5.0"
+        versionCode 6
+        versionName "6.0"
 
         vectorDrawables {
             useSupportLibrary true

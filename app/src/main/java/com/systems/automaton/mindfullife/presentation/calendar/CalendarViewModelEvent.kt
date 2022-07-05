@@ -1,7 +1,7 @@
-package com.mhss.app.mybrain.presentation.calendar
+package com.systems.automaton.mindfullife.presentation.calendar
 
-import com.mhss.app.mybrain.domain.model.Calendar
-import com.mhss.app.mybrain.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.domain.model.Calendar
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
 
 sealed class CalendarViewModelEvent {
     data class IncludeCalendar(val calendar: Calendar) : CalendarViewModelEvent()

@@ -1,10 +1,10 @@
-package com.mhss.app.mybrain.domain.use_case.calendar
+package com.systems.automaton.mindfullife.domain.use_case.calendar
 
 import android.content.Context
 import android.content.Intent
-import com.mhss.app.mybrain.domain.model.CalendarEvent
-import com.mhss.app.mybrain.domain.repository.CalendarRepository
-import com.mhss.app.mybrain.presentation.glance_widgets.RefreshCalendarWidgetReceiver
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.domain.repository.CalendarRepository
+import com.systems.automaton.mindfullife.presentation.glance_widgets.RefreshCalendarWidgetReceiver
 import javax.inject.Inject
 
 class AddCalendarEventUseCase @Inject constructor(

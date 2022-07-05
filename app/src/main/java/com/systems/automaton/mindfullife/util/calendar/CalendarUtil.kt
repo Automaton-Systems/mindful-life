@@ -1,8 +1,8 @@
-package com.mhss.app.mybrain.util.calendar
+package com.systems.automaton.mindfullife.util.calendar
 
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.app.getString
-import com.mhss.app.mybrain.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.app.getString
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
 
 const val CALENDAR_FREQ_DAILY = "DAILY"
 const val CALENDAR_FREQ_WEEKLY = "WEEKLY"

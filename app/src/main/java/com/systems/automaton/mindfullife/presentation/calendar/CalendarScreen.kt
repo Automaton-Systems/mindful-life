@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalPermissionsApi::class, ExperimentalAnimationApi::class)
 
-package com.mhss.app.mybrain.presentation.calendar
+package com.systems.automaton.mindfullife.presentation.calendar
 
 import android.content.Context
 import android.content.Intent
@@ -31,12 +31,12 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.gson.Gson
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.Calendar
-import com.mhss.app.mybrain.domain.model.CalendarEvent
-import com.mhss.app.mybrain.presentation.util.Screen
-import com.mhss.app.mybrain.util.Constants
-import com.mhss.app.mybrain.util.date.*
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.Calendar
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.presentation.util.Screen
+import com.systems.automaton.mindfullife.util.Constants
+import com.systems.automaton.mindfullife.util.date.*
 import kotlinx.coroutines.launch
 
 @Composable

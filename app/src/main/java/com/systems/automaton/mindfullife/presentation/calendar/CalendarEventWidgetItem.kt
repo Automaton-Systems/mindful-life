@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.presentation.calendar
+package com.systems.automaton.mindfullife.presentation.calendar
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -17,11 +17,11 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.google.gson.Gson
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.CalendarEvent
-import com.mhss.app.mybrain.presentation.glance_widgets.CalendarWidgetItemClick
-import com.mhss.app.mybrain.presentation.glance_widgets.eventJson
-import com.mhss.app.mybrain.util.date.formatEventStartEnd
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.CalendarEvent
+import com.systems.automaton.mindfullife.presentation.glance_widgets.CalendarWidgetItemClick
+import com.systems.automaton.mindfullife.presentation.glance_widgets.eventJson
+import com.systems.automaton.mindfullife.util.date.formatEventStartEnd
 
 @Composable
 fun CalendarEventWidgetItem(

@@ -1,9 +1,9 @@
-package com.mhss.app.mybrain.data.repository
+package com.systems.automaton.mindfullife.data.repository
 
-import com.mhss.app.mybrain.data.local.dao.NoteDao
-import com.mhss.app.mybrain.domain.model.Note
-import com.mhss.app.mybrain.domain.model.NoteFolder
-import com.mhss.app.mybrain.domain.repository.NoteRepository
+import com.systems.automaton.mindfullife.data.local.dao.NoteDao
+import com.systems.automaton.mindfullife.domain.model.Note
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.domain.repository.NoteRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

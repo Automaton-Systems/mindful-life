@@ -1,11 +1,11 @@
-package com.mhss.app.mybrain.util
+package com.systems.automaton.mindfullife.util
 
 object Constants {
 
     // Alarm & Notification
     const val REMINDERS_CHANNEL_ID = "reminders_notification_channel"
     const val TASK_ID_EXTRA = "task_Id"
-    const val ACTION_COMPLETE = "com.mhss.app.mybrain.COMPLETE_ACTION"
+    const val ACTION_COMPLETE = "com.systems.automaton.mindfullife.COMPLETE_ACTION"
 
     // Settings
     const val SETTINGS_PREFERENCES = "settings_preferences"
@@ -23,11 +23,11 @@ object Constants {
 
     // Navigation
     const val TASK_ID_ARG = "task_id"
-    const val TASK_DETAILS_URI = "app://com.mhss.app.mybrain/task_details"
+    const val TASK_DETAILS_URI = "app://com.systems.automaton.mindfullife/task_details"
     const val ADD_TASK_ARG = "add_task"
-    const val TASKS_SCREEN_URI = "app://com.mhss.app.mybrain/tasks"
-    const val CALENDAR_SCREEN_URI = "app://com.mhss.app.mybrain/calendar"
-    const val CALENDAR_DETAILS_SCREEN_URI = "app://com.mhss.app.mybrain/calendar_event_details"
+    const val TASKS_SCREEN_URI = "app://com.systems.automaton.mindfullife/tasks"
+    const val CALENDAR_SCREEN_URI = "app://com.systems.automaton.mindfullife/calendar"
+    const val CALENDAR_DETAILS_SCREEN_URI = "app://com.systems.automaton.mindfullife/calendar_event_details"
     const val NOTE_ID_ARG = "note_id"
     const val BOOKMARK_ID_ARG = "bookmark_id"
     const val DIARY_ID_ARG = "diary_id"
@@ -35,14 +35,8 @@ object Constants {
     const val FOLDER_ID = "folder_id"
 
     // lINKS
-    const val PROJECT_GITHUB_LINK = "https://github.com/mhss1/ByBrain"
-    const val PROJECT_ROADMAP_LINK = "https://github.com/mhss1/ByBrain/projects/1"
-    const val PRIVACY_POLICY_LINK = "https://github.com/mhss1/ByBrain/blob/master/privacy-policy.md"
-    const val KO_FI_LINK = "https://ko-fi.com/mhss1"
-    const val BUY_ME_A_COFFEE_LINK = "https://www.buymeacoffee.com/mhss"
-    const val PAYPAL_LINK = "https://www.paypal.me/mhss1"
-    const val GITHUB_ISSUES_LINK = "https://github.com/mhss1/ByBrain/issues"
-    const val GITHUB_RELEASES_LINK = "https://github.com/mhss1/ByBrain/releases"
+    const val PROJECT_GITHUB_LINK = "https://github.com/automaton82/mindful-life"
+    const val PRIVACY_POLICY_LINK = "https://github.com/automaton82/mindful-life/blob/master/privacy-policy.md"
 
 
 }

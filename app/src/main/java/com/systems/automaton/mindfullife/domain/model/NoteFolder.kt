@@ -1,4 +1,4 @@
-package com.mhss.app.mybrain.domain.model
+package com.systems.automaton.mindfullife.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

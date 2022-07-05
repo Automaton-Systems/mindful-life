@@ -1,14 +1,14 @@
-package com.mhss.app.mybrain.util.settings
+package com.systems.automaton.mindfullife.util.settings
 
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.app.getString
-import com.mhss.app.mybrain.ui.theme.Green
-import com.mhss.app.mybrain.ui.theme.Orange
-import com.mhss.app.mybrain.ui.theme.Red
-import com.mhss.app.mybrain.ui.theme.Rubik
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.app.getString
+import com.systems.automaton.mindfullife.ui.theme.Green
+import com.systems.automaton.mindfullife.ui.theme.Orange
+import com.systems.automaton.mindfullife.ui.theme.Red
+import com.systems.automaton.mindfullife.ui.theme.Rubik
 
 
 enum class ThemeSettings(val value: Int) {

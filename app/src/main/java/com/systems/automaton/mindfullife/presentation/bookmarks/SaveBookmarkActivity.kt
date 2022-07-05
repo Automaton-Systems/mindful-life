@@ -1,13 +1,13 @@
-package com.mhss.app.mybrain.presentation.bookmarks
+package com.systems.automaton.mindfullife.presentation.bookmarks
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-import com.mhss.app.mybrain.R
-import com.mhss.app.mybrain.domain.model.Bookmark
-import com.mhss.app.mybrain.util.bookmarks.isValidUrl
+import com.systems.automaton.mindfullife.R
+import com.systems.automaton.mindfullife.domain.model.Bookmark
+import com.systems.automaton.mindfullife.util.bookmarks.isValidUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

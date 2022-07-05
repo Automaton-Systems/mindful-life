@@ -1,7 +1,7 @@
-package com.mhss.app.mybrain.domain.use_case.notes
+package com.systems.automaton.mindfullife.domain.use_case.notes
 
-import com.mhss.app.mybrain.domain.model.NoteFolder
-import com.mhss.app.mybrain.domain.repository.NoteRepository
+import com.systems.automaton.mindfullife.domain.model.NoteFolder
+import com.systems.automaton.mindfullife.domain.repository.NoteRepository
 import javax.inject.Inject
 
 class UpdateNoteFolderUseCass @Inject constructor(
