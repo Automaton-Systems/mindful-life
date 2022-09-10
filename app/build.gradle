@@ -13,8 +13,8 @@ android {
         applicationId "com.systems.automaton.mindfullife"
         minSdk 24
         targetSdk 32
-        versionCode 6
-        versionName "6.0"
+        versionCode 7
+        versionName "7.0"
 
         vectorDrawables {
             useSupportLibrary true
@@ -65,17 +65,17 @@ kotlin {
 }
 
 dependencies {
-    def nav_version = "2.5.0"
-    def room_version = "2.4.2"
+    def nav_version = "2.5.2"
+    def room_version = "2.4.3"
     def coroutines_version = "1.6.1"
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
-    implementation 'androidx.activity:activity-compose:1.5.0'
-    implementation 'com.google.android.gms:play-services-ads:21.0.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation 'com.google.android.gms:play-services-ads:21.2.0'
     implementation 'com.android.billingclient:billing:5.0.0'
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
@@ -98,7 +98,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
 
     // Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
